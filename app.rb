@@ -1,25 +1,14 @@
 # frozen_string_literal: true
 require 'json'
 require 'rest-client'
+require './bikepoint'
 
 def all_bikepoints
   JSON.parse(RestClient.get(ENV['BIKEPOINT_API_URL']))
 end
 
 def bikepoint(common_name)
-  all_bikepoints.find { |bikepoint| bikepoint['commonName'] == common_name }
-end
-
-def bikes(bikepoint)
-  additional_property(bikepoint, 'NbBikes')
-end
-
-def spaces(bikepoint)
-  additional_property(bikepoint, 'NbEmptyDocks')
-end
-
-def additional_property(bikepoint, property)
-  bikepoint['additionalProperties'].find { |p| p['key'] == property }['value']
+  Bikepoint.new(all_bikepoints.find { |bikepoint| bikepoint['commonName'] == common_name })
 end
 
 def post_to_slack_webhook(url, attachments)
@@ -28,11 +17,11 @@ end
 
 def attachment(bikepoint_name)
   bikepoint = bikepoint(bikepoint_name)
-  field_text = "#{bikes(bikepoint)} bikes\n#{spaces(bikepoint)} spaces"
+  field_text = "#{bikepoint.bikes} bikes\n#{bikepoint.spaces} spaces"
   {
-    'fallback' => "#{bikepoint_name}: #{bikes(bikepoint)} bikes, #{spaces(bikepoint)} spaces",
+    'fallback' => "#{bikepoint.name}: #{bikepoint.bikes} bikes, #{bikepoint.spaces} spaces",
     'color' => 'good',
-    'fields' => [{ 'title' => bikepoint_name, 'value' => field_text }]
+    'fields' => [{ 'title' => bikepoint.name, 'value' => field_text }]
   }
 end
 
