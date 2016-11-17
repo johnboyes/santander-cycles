@@ -1,5 +1,7 @@
 # santander-cycles
 
+[![CircleCI](https://circleci.com/gh/johnboyes/santander-cycles.svg?style=svg)](https://circleci.com/gh/johnboyes/santander-cycles)
+
 Get notifications on [Slack](https://slack.com/is) for specific **[Santander Cycles](https://tfl.gov.uk/modes/cycling/santander-cycles) docking station availability in London**.
 
 Example use case: you use the same bike docking stations every day to and from work; by deploying this app on [Heroku](https://heroku.com) you can set up (**free) [scheduled](https://elements.heroku.com/addons/scheduler) daily notifications** on Slack with the number of bikes and spaces available at those specific docking stations.
