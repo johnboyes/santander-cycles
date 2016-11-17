@@ -61,3 +61,7 @@ More information about Ruby on Heroku:
 
 - [Getting Started with Ruby on Heroku](https://devcenter.heroku.com/articles/getting-started-with-ruby)
 - [Heroku Ruby Support](https://devcenter.heroku.com/articles/ruby-support)
+
+## Run the tests locally
+
+  Just run `rspec` from the project's root folder
