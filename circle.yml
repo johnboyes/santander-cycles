@@ -3,3 +3,6 @@ deployment:
     branch: master
     heroku:
       appname: santander-cycles
+test:
+  override:
+    - bundle exec rspec
