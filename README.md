@@ -1,6 +1,6 @@
 # santander-cycles
 
-[![CircleCI](https://circleci.com/gh/johnboyes/santander-cycles.svg?style=svg)](https://circleci.com/gh/johnboyes/santander-cycles)
+[![CircleCI](https://circleci.com/gh/johnboyes/santander-cycles.svg?style=shield)](https://circleci.com/gh/johnboyes/santander-cycles)
 
 Get notifications on [Slack](https://slack.com/is) for specific **[Santander Cycles](https://tfl.gov.uk/modes/cycling/santander-cycles) docking station availability in London**.
 
