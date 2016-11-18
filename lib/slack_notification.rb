@@ -10,11 +10,10 @@ module SlackNotifier
   end
 
   def attachment
-    field_text = "#{bikes} bikes\n#{spaces} spaces"
     {
-      'fallback' => "#{name}: #{bikes} bikes, #{spaces} spaces",
-      'color' => 'good',
-      'fields' => [{ 'title' => name, 'value' => field_text }]
+      fallback: "#{name}: #{bikes} bikes, #{spaces} spaces",
+      color: 'good',
+      fields: [{ title: name, value: "#{bikes} bikes\n#{spaces} spaces" }]
     }
   end
 
