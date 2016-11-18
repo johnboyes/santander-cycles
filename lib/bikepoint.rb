@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'json'
 require 'rest-client'
-require 'slack_notification'
+require 'slack_notifier'
 
 # A bike point with a rack of cycles for hire.
 class Bikepoint
