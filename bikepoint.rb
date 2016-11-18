@@ -1,4 +1,7 @@
 # frozen_string_literal: true
+require 'json'
+require 'rest-client'
+
 # A bike point with a rack of cycles for hire.
 class Bikepoint
   def self.all
@@ -7,6 +10,10 @@ class Bikepoint
 
   def self.all_json
     JSON.parse(RestClient.get(ENV['BIKEPOINT_API_URL']))
+  end
+
+  def self.all_names
+    all.keys
   end
 
   attr_reader :name, :bikes, :spaces
