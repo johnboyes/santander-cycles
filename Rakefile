@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'slack_notification'
+require 'bikepoint'
 require 'markdown'
 
 task default: 'notify:slack'
@@ -9,7 +9,7 @@ task default: 'notify:slack'
 desc 'Notify Santander Cycles availability on Slack'
 namespace 'notify' do
   task :slack do
-    notify_on_slack
+    SlackNotifier.notify
   end
 end
 
