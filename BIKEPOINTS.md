@@ -1,6 +1,6 @@
 # All Santander Cycles bikepoint names
 Copy all the names you wish to receive notifications for into a semi-colon
-                separated list in the `BIKEPOINT_COMMON_NAMES` environment variable.
+                  separated list in the `BIKEPOINT_COMMON_NAMES` environment variable.
 - Abbey Orchard Street, Westminster
 - Abbotsbury Road, Holland Park
 - Aberdeen Place, St. John's Wood
@@ -65,6 +65,7 @@ Copy all the names you wish to receive notifications for into a semi-colon
 - Belvedere Road 2, South Bank
 - Bermondsey Street, Bermondsey
 - Berry Street, Clerkenwell
+- Beryl Road, Hammersmith
 - Bethnal Green Garden, Bethnal Green
 - Bethnal Green Road, Shoreditch
 - Bevington Road West, North Kensington
