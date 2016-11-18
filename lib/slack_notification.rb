@@ -2,7 +2,7 @@
 # See https://api.slack.com/incoming-webhooks
 require 'json'
 require 'rest-client'
-require './bikepoint'
+require 'bikepoint'
 
 def post_to_slack_webhook(url, bikepoint)
   attachments = [attachment(bikepoint)]

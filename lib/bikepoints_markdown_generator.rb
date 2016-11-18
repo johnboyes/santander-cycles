@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require './bikepoint'
+require 'bikepoint'
 
 def to_markdown_list(array)
   array.map { |e| ('- ' + e) }

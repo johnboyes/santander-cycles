@@ -1,6 +1,8 @@
 # frozen_string_literal: true
-require './slack_notification'
-require './bikepoints_markdown_generator'
+lib = File.expand_path('../lib', __FILE__)
+$LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'slack_notification'
+require 'bikepoints_markdown_generator'
 
 task default: 'notify:slack'
 
