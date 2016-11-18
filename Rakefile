@@ -2,7 +2,7 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'slack_notification'
-require 'bikepoints_markdown_generator'
+require 'markdown'
 
 task default: 'notify:slack'
 
@@ -16,7 +16,7 @@ end
 desc 'Generate "BIKEPOINTS.md" with list of all Santander Cycles bikepoint names'
 task :generate_bikepoints_markdown do |task_name|
   next puts missing_environment_variable_message task_name unless ENV['BIKEPOINT_API_URL']
-  BikepointsMarkdown.generate
+  Markdown::Bikepoints.generate
 end
 
 def missing_environment_variable_message(task_name)
