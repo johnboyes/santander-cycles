@@ -1,4 +1,5 @@
 [![CircleCI](https://circleci.com/gh/johnboyes/santander-cycles.svg?style=shield)](https://circleci.com/gh/johnboyes/santander-cycles)
+[![Code Climate](https://codeclimate.com/github/johnboyes/santander-cycles/badges/gpa.svg)](https://codeclimate.com/github/johnboyes/santander-cycles)
 
 # santander-cycles
 
