@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 require 'json'
 require 'rest-client'
+require 'slack_notification'
 
 # A bike point with a rack of cycles for hire.
 class Bikepoint
+  include SlackNotifier
+
   def self.all
     @bikepoints ||= all_json.map { |json| [json['commonName'], Bikepoint.new(json)] }.to_h
   end
