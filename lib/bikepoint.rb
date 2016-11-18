@@ -5,7 +5,7 @@ require 'rest-client'
 # A bike point with a rack of cycles for hire.
 class Bikepoint
   def self.all
-    @bikepoints ||= all_json.map { |j| [j['commonName'], Bikepoint.new(j)] }.to_h
+    @bikepoints ||= all_json.map { |json| [json['commonName'], Bikepoint.new(json)] }.to_h
   end
 
   def self.all_json
@@ -26,6 +26,6 @@ class Bikepoint
   end
 
   def additional_property(property)
-    @raw_json['additionalProperties'].find { |p| p['key'] == property }['value']
+    @raw_json['additionalProperties'].find { |prop| prop['key'] == property }['value']
   end
 end
