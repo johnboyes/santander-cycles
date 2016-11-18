@@ -1,6 +1,6 @@
 # All Santander Cycles bikepoint names
-Copy all the names you wish to receive notifications for into a semi-colon separated
-            list in the `BIKEPOINT_COMMON_NAMES` environment variable.
+Copy all the names you wish to receive notifications for into a semi-colon
+                separated list in the `BIKEPOINT_COMMON_NAMES` environment variable.
 - Abbey Orchard Street, Westminster
 - Abbotsbury Road, Holland Park
 - Aberdeen Place, St. John's Wood
