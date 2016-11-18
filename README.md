@@ -25,12 +25,12 @@ Prerequisites:
 
  * [Heroku CLI (Command Line Interface)](https://devcenter.heroku.com/articles/heroku-command-line)
 
-Create a `.env` file by copying the [`example.env`](example.env) in the root of the project and amend the environment variables in it:
+Create a `.env` file by copying the [`example.env`](example.env) and amend the environment variables in it:
 
 ```
 SLACK_WEBHOOK_URL=put_your_slack_webhook_url_here
 BIKEPOINT_API_URL=https://api.tfl.gov.uk/bikepoint
-BIKEPOINT_COMMON_NAMES=River Street , Clerkenwell;Phillimore Gardens, Kensington;
+BIKEPOINT_COMMON_NAMES=Abbey Orchard Street, Westminster;Abbotsbury Road, Holland Park
 
 ```
 * `SLACK_WEBHOOK_URL` use the URL provided by the [Slack webhook](https://api.slack.com/incoming-webhooks) you set up in the "Getting Started" section above.
