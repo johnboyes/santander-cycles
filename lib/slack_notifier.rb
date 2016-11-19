@@ -4,7 +4,7 @@ require 'rest_client'
 # Able to notify availability on Slack; see https://api.slack.com/incoming-webhooks
 module SlackNotifier
   def self.notify
-    ENV['BIKEPOINT_COMMON_NAMES'].split(';').each do |bikepoint_name|
+    ENV['BIKEPOINT_NAMES'].split(';').each do |bikepoint_name|
       Bikepoint.all[bikepoint_name].notify
     end
   end

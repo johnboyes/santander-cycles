@@ -33,12 +33,12 @@ Create a `.env` file by copying the [`example.env`](example.env) and amend the e
 ```
 SLACK_WEBHOOK_URL=put_your_slack_webhook_url_here
 BIKEPOINT_API_URL=https://api.tfl.gov.uk/bikepoint
-BIKEPOINT_COMMON_NAMES=Abbey Orchard Street, Westminster;Abbotsbury Road, Holland Park
+BIKEPOINT_NAMES=Abbey Orchard Street, Westminster;Abbotsbury Road, Holland Park
 
 ```
 * `SLACK_WEBHOOK_URL` use the URL provided by the [Slack webhook](https://api.slack.com/incoming-webhooks) you set up in the "Getting Started" section above.
 
-* `BIKEPOINT_COMMON_NAMES` - You can keep the defaults to get up and running initially.  Then you can replace the defaults provided with a semi-colon separated list of the [docking station names](BIKEPOINTS.md) that you would like to be notified about. (The last entry in the list does not need a semi-colon after it but will work fine either way.)
+* `BIKEPOINT_NAMES` - You can keep the defaults to get up and running initially.  Then you can replace the defaults provided with a semi-colon separated list of the [docking station names](BIKEPOINTS.md) that you would like to be notified about. (The last entry in the list does not need a semi-colon after it but will work fine either way.)
 
 
 Then:
@@ -54,7 +54,7 @@ Then:
 heroku create --region eu
 heroku config:set SLACK_WEBHOOK=put_your_slack_webhook_url_here
 heroku config:set BIKEPOINT_API_URL=https://api.tfl.gov.uk/bikepoint
-heroku config:set BIKEPOINT_COMMON_NAMES=put_the_names_from_your_.env_file_here
+heroku config:set BIKEPOINT_NAMES=put_the_names_from_your_.env_file_here
 git push heroku master
 ```
 
