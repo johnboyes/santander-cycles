@@ -4,6 +4,7 @@ ruby '2.3.2'
 
 gem 'rest-client'
 gem 'rake'
+gem 'airbrake', '~> 5.6'
 
 group :test do
   gem 'rspec'
