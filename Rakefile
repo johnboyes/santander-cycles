@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'airbrake'
 require 'bikepoint'
 require 'markdown'
 
@@ -11,6 +12,11 @@ namespace 'notify' do
   task :slack do
     SlackNotifier.notify
   end
+end
+
+Airbrake.configure do |c|
+  c.project_id = 133_461
+  c.project_key = '47baf0b45c8229718715b07edee4b9e8'
 end
 
 desc 'Generate "BIKEPOINTS.md" with list of all Santander Cycles bikepoint names'
