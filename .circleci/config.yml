@@ -1,0 +1,64 @@
+version: 2.1
+executors:
+  circleci-ruby-executor:
+    docker:
+      - image: circleci/ruby:2.3-jessie
+jobs:
+  build:
+    working_directory: ~/santander-cycles
+    environment:
+      BUNDLE_PATH: vendor/bundle  # path to install gems and use for caching
+      CIRCLE_ARTIFACTS: /tmp/circleci-artifacts
+      CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
+    executor: circleci-ruby-executor
+    steps:
+    - checkout
+    # Prepare for artifact and test results  collection equivalent to how it was done on 1.0.
+    # In many cases you can simplify this from what is generated here.
+    # 'See docs on artifact collection here https://circleci.com/docs/2.0/artifacts/'
+    - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
+
+    - run:
+        name: Which bundler?
+        command: bundle -v
+
+    - restore_cache:
+        keys:
+        # when lock file changes, use increasingly general patterns to restore cache
+          - v2.3-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+          - v2.3-gem-cache-{{ arch }}-{{ .Branch }}-
+          - v2.3-gem-cache-{{ arch }}-
+
+    - run: bundle check || bundle install && bundle clean
+
+    - save_cache:
+        paths:
+          - vendor/bundle
+        key: v2.3-gem-cache-{{ arch }}-{{ .Branch }}-{{ checksum "Gemfile.lock" }}
+
+    # Test
+    #   This would typically be a build job when using workflows, possibly combined with build
+    # This is based on your 1.0 configuration file or project settings
+    - run: bundle exec rspec
+    - run: bundle exec codeclimate-test-reporter
+
+  deploy:
+    executor: circleci-ruby-executor
+    steps:
+      - checkout
+      - run:
+          name: Deploy Master to Heroku
+          command: |
+            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build
+      - deploy:
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
