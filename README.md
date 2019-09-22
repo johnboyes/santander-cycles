@@ -1,6 +1,5 @@
 [![CircleCI](https://circleci.com/gh/johnboyes/santander-cycles.svg?style=shield)](https://circleci.com/gh/johnboyes/santander-cycles)
 [![Code Climate](https://codeclimate.com/github/johnboyes/santander-cycles/badges/gpa.svg)](https://codeclimate.com/github/johnboyes/santander-cycles)
-[![Dependency Status](https://gemnasium.com/badges/github.com/johnboyes/santander-cycles.svg)](https://gemnasium.com/github.com/johnboyes/santander-cycles)
 
 
 # santander-cycles
